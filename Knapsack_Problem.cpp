@@ -17,16 +17,38 @@ void display(struct item s[])
         cout << "\nRatio : " << s[i].ratio << " Profit :" << s[i].profit << " Weight : " << s[i].weight << endl;
 }
 
-void sort(struct item s[])
+int partition(item arr[], int start, int end)
 {
-    for (int i = 0; i < n; i++)
+    item pivot = arr[start];
+    int count = 0;
+    for (int i = start + 1; i <= end; i++)
     {
-        for (int j = 0; j < n; j++)
-        {
-            if (s[i].ratio >= s[j].ratio)
-                swap(s[i], s[j]);
-        }
+        if (arr[i].ratio >= pivot.ratio)
+            count++;
     }
+    int pivotIndex = start + count;
+    swap(arr[pivotIndex], arr[start]);
+    int i = start, j = end;
+
+    while (i < pivotIndex && j > pivotIndex)
+    {
+        while (arr[i].ratio >= pivot.ratio)
+            i++;
+        while (arr[j].ratio < pivot.ratio)
+            j--;
+        if (i < pivotIndex && j > pivotIndex)
+            swap(arr[i++], arr[j--]);
+    }
+    return pivotIndex;
+}
+
+void quickSort(item arr[], int start, int end)
+{
+    if (start >= end)
+        return;
+    int p = partition(arr, start, end);
+    quickSort(arr, start, p - 1);
+    quickSort(arr, p + 1, end);
 }
 
 void fill(struct item s[])
@@ -70,8 +92,7 @@ int main()
         it[i].ratio = it[i].profit / it[i].weight;
         cout << it[i].ratio;
     }
-
-// sort(it);
+    quickSort(it, 0, n - 1);
 // display(it);
 // fill(it);
 MENU:
@@ -85,7 +106,6 @@ MENU:
     case 0:
         exit;
     case 1:
-        sort(it);
         display(it);
         fill(it);
         goto MENU;

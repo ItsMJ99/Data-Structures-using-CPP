@@ -1,0 +1,1 @@
+{"name":"Local: 01Knapsack","url":"e:\\MJ\\COLLEGE\\Data-Structures-using-CPP\\01Knapsack.cpp","tests":[{"id":1694458782953,"input":"4\n10\n2 3 4 5\n3 4 5 6","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"e:\\MJ\\COLLEGE\\Data-Structures-using-CPP\\01Knapsack.cpp","group":"local","local":true}

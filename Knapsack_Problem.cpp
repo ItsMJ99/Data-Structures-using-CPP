@@ -93,24 +93,24 @@ int main()
         cout << it[i].ratio;
     }
     quickSort(it, 0, n - 1);
-// display(it);
-// fill(it);
-MENU:
-    int ch;
-    cout << "==========[ MENU ]==========" << endl;
-    cout << "\n0. Exit\n1. Greedy Approach\n2. 0/1 Approach" << endl;
-    cout << "Enter Choice : ";
-    cin >> ch;
-    switch (ch)
-    {
-    case 0:
-        exit;
-    case 1:
-        display(it);
-        fill(it);
-        goto MENU;
-    case 2:
-        goto MENU;
-    }
+    display(it);
+    fill(it);
+    // MENU:
+    //     int ch;
+    //     cout << "==========[ MENU ]==========" << endl;
+    //     cout << "\n0. Exit\n1. Greedy Approach\n2. 0/1 Approach" << endl;
+    //     cout << "Enter Choice : ";
+    //     cin >> ch;
+    //     switch (ch)
+    //     {
+    //     case 0:
+    //         exit;
+    //     case 1:
+    //         display(it);
+    //         fill(it);
+    //         goto MENU;
+    //     case 2:
+    //         goto MENU;
+    //     }
     return 0;
 }
